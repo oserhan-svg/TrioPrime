@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRIO PRIME — Trio Emlak / Ozancan Serhan</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:wght@900&display=swap');
+:root{--green:#0f2e1f;--gold:#c8a96e;--cream:#f4f1ea;--ink:#111;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--green);color:var(--cream);line-height:1.55;overflow-x:hidden}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:6rem 4vw;background:radial-gradient(circle at 70% 30%,#1a4a33 0%,var(--green) 70%);}
+.hero::before{content:"";position:absolute;inset:0;background:url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M0 30 L30 0 L60 30 L30 60 Z\" fill=\"none\" stroke=\"rgba(200,169,110,0.08)\" stroke-width=\"1\"/%3E%3C/svg%3E');pointer-events:none;opacity:.6}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3.2rem,10vw,8rem);letter-spacing:-0.06em;line-height:.92;color:var(--gold);text-shadow:0 12px 40px rgba(0,0,0,.45);position:relative;z-index:1}
+.hero .sub{font-size:1.35rem;font-weight:400;color:#c7bfa8;margin-top:1.2rem;position:relative;z-index:1}
+.hero .badge{display:inline-block;background:rgba(15,46,31,.8);border:1px solid var(--gold);color:var(--gold);padding:.55rem 1.2rem;border-radius:9999px;font-weight:700;margin-top:2rem;font-size:.92rem;letter-spacing:.08em;position:relative;z-index:1}
+.section{padding:6rem 4vw;max-width:1100px;margin:0 auto}
+.section h2{font-family:'Playfair Display',serif;font-size:2.6rem;color:var(--gold);margin-bottom:2.5rem;border-bottom:2px solid rgba(200,169,110,.25);padding-bottom:.6rem}
+.phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.phase-card{background:rgba(15,46,31,.55);border:1px solid rgba(200,169,110,.25);border-radius:18px;padding:2rem;backdrop-filter:blur(8px);transition:transform .15s ease}
+.phase-card:hover{transform:translateY(-4px);border-color:rgba(200,169,110,.55)}
+.phase-card .tag{font-weight:900;color:var(--ink);background:var(--gold);padding:.15rem .6rem;border-radius:6px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;display:inline-block;margin-bottom:.8rem}
+.phase-card h3{font-size:1.15rem;font-weight:700;margin-bottom:.6rem;color:#fff}
+.phase-card p{font-size:.92rem;color:#c7bfa8}
+.results{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.4rem}
+.result-pill{background:#0f2e1f;border:1px solid rgba(200,169,110,.35);color:#eaddb8;padding:.25rem .75rem;border-radius:999px;font-size:.82rem;font-weight:700}
+.footer{border-top:1px solid rgba(200,169,110,.2);padding:3rem 4vw;text-align:center;color:#a39885;font-size:.85rem}
+.footer a{color:var(--gold);text-decoration:none;font-weight:700}
+@media(max-width:640px){.hero{padding:4rem 5vw}.section{padding:4rem 5vw}}
+</style>
+</head>
+<body>
+<section class="hero" aria-label="Başlık">
+  <h1>TRIO PRIME</h1>
+  <p class="sub">Trio Emlak · Ozancan Serhan · <strong>0533 378 68 94</strong> · Sıfır Halüsinasyon</p>
+  <p class="sub" style="margin-top:.6rem;color:#a8a08a">Ayvalık · Cunda · Altınova · Gömeç · İstanbul</p>
+  <span class="badge">Faze 1 → Faze 4 · 4 Fazlı Çıkış</span>
+</section>
+
+<section class="section" aria-label="Sonuçlar">
+  <h2>📊 İddaa Tarzı Sonuçlar</h2>
+  <div class="results">
+    <span class="result-pill">FB-GS · 0-0</span>
+    <span class="result-pill">BJK-TS · 3-2</span>
+    <span class="result-pill">IBFK-ANT · 2-1</span>
+  </div>
+  <p style="margin-top:1rem;color:#c7bfa8;font-size:.95rem">Toxkolikk Grubu — Telegram bot: <strong>@ToxkolLik_bot</strong> · Grup bağlantısı: <code>-1004421698510</code></p>
+</section>
+
+<section class="section" aria-label="4 Faz">
+  <h2>🔄 4 Fazlı Çıkış (.worktrees)</h2>
+  <div class="phase-grid">
+    <article class="phase-card">
+      <span class="tag">Faze-1</span>
+      <h3>Veri Akışı &amp; CRM</h3>
+      <p>Google Sheets CRM köprüsü, webhook doğrulama, talep format testi.</p>
+    </article>
+    <article class="phase-card">
+      <span class="tag">Faze-2</span>
+      <h3>Portföy Entegrasyonu</h3>
+      <p>Trio Emlak ilanlarının indekslenmesi, müşteri-ilan eşleştirme.</p>
+    </article>
+    <article class="phase-card">
+      <span class="tag">Faze-3</span>
+      <h3>İçerik Otomasyonu</h3>
+      <p>Otomatik sosyal medya metni, hook, görsel prompt üretimi.</p>
+    </article>
+    <article class="phase-card">
+      <span class="tag">Faze-4</span>
+      <h3>Tam Orkestrasyon</h3>
+      <p>Piyasa taraması, KPI raporlama, otonom operasyon.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" aria-label="Bot">
+  <h2>🤖 Telegram Bot</h2>
+  <p style="color:#c7bfa8;max-width:720px">Bot: <strong>ToxkolLik_bot</strong> · Grup: <code>-1004421698510</code> · LM Studio (localhost:1234) + openai/gpt-oss-20b ile içerik üretimi desteklenir.</p>
+  <p style="margin-top:.6rem;color:#a39885;font-size:.85rem">.env.local üzerinden LM_STUDIO_URL (localhost:1234) kullanılabilir. Hassas değerler [REDACTED].</p>
+</section>
+
+<section class="section" aria-label="İletişim">
+  <h2>📞 İletişim</h2>
+  <p style="color:#c7bfa8">Yetkili: <strong>Ozancan Serhan</strong> · Telefon: <strong>0533 378 68 94</strong> · Bölge: Ayvalık / Cunda / Altınova / Gömeç / İstanbul · Kimlik: Gökcan (<code>gokcan@trio.emlak</code>)</p>
+</section>
+
+<footer class="footer">
+  <p>TRIO PRIME — Trio Emlak · <a href="#">GitHub</a> · <a href="#">feature/trio-directive</a> · docs: güncelleme</p>
+</footer>
+</body>
+</html>
