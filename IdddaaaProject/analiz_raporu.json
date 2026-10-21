@@ -1,0 +1,48 @@
+{
+  "toplam_tahmin": 2,
+  "dogru_tahmin": 1,
+  "basari_orani": 50.0,
+  "ortalama_guven_skoru": 7.7,
+  "hata_payi_mae": 0.5,
+  "sapma": 0.7071,
+  "bahis_turu_basari": {
+    "İY KG Var": {
+      "toplam": 2,
+      "dogru": 1
+    }
+  },
+  "guven_skoru_analizi": {
+    "7-8": {
+      "toplam": 2,
+      "dogru": 1
+    }
+  },
+  "tarih_bazli": {
+    "2026-10-19": {
+      "toplam": 1,
+      "dogru": 0
+    },
+    "2026-10-20": {
+      "toplam": 1,
+      "dogru": 1
+    }
+  },
+  "lig_bazli": {
+    "Süper Lig": {
+      "toplam": 1,
+      "dogru": 0
+    },
+    "UEFA ŞL": {
+      "toplam": 1,
+      "dogru": 1
+    }
+  },
+  "oneriler": [
+    {
+      "bahis_turu": "SAPMA",
+      "basari_orani": 29.3,
+      "oneri": "Standart sapma = 0.7071 - tutarsızlık tespit edildi, parametre stabilitesi gözden geçirilmeli",
+      "oncelik": "ORTA"
+    }
+  ]
+}
