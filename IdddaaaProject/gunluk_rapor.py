@@ -317,6 +317,9 @@ def main():
     ap.add_argument("--min-guven", type=float, default=None)
     ap.add_argument("--skip-scrape", action="store_true",
                     help="Bülten yeniden çekilmez, mevcut bulten.json kullanılır")
+    ap.add_argument("--effort", type=str, default="medium",
+                    choices=["light", "medium", "high"],
+                    help="Model optimizasyon seviyesi: light (hızlı), medium (standart), high (tam analiz)")
     args = ap.parse_args()
 
     if args.min_guven is not None:
