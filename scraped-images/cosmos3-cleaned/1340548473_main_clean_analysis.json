@@ -1,0 +1,34 @@
+{
+  "id": "chatcmpl-346f76a42c854b128abe5bf29c7d17c4",
+  "object": "chat.completion",
+  "created": 1792855559,
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The image contains a logo, a plate, and a watermark. The logo is the red circle with white text that reads \"SATILIK ARSA\". The plate is the white text on the road that reads \"MEVLANA CAD.\" The watermark is the faint, illegible text that appears to be a copyright symbol or a trademark symbol.\n\n*Answer*: Yes",
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [],
+        "reasoning_content": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "prompt_tokens": 1682,
+    "total_tokens": 1757,
+    "completion_tokens": 75,
+    "prompt_tokens_details": null
+  },
+  "prompt_logprobs": null,
+  "kv_transfer_params": null
+}

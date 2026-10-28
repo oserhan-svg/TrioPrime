@@ -1,0 +1,128 @@
+version: '3.8'
+
+services:
+  # Cosmos3 + Llama Vision Validation Service
+  cosmos3-validator:
+    image: nvcr.io/nim/nvidia/cosmos3-reasoner:latest
+    container_name: cosmos3-validator
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_API_KEY=${NVIDIA_API_KEY}
+      - NIM_MODEL_SIZE=nano
+      - NIM_MODEL_NAME=nvidia/cosmos3-reasoner
+    volumes:
+      - ./data:/workspace/data:ro
+      - ./logs:/workspace/logs
+      - ./scripts:/workspace/scripts:ro
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/v1/health/live"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 16G
+
+  # Photocraft Service (Headless)
+  photocraft:
+    build:
+      context: ./photocraft
+      dockerfile: Dockerfile
+    container_name: photocraft-processor
+    environment:
+      - DISPLAY=:99
+    volumes:
+      - ./data:/workspace/data
+      - ./output:/workspace/output
+      - ./scripts:/workspace/scripts:ro
+      - ./config:/workspace/config:ro
+    depends_on:
+      - cosmos3-validator
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+    command: ["tail", "-f", "/dev/null"]
+
+  # Quality Gate Orchestrator
+  quality-gate:
+    build:
+      context: .
+      dockerfile: Dockerfile.quality-gate
+    container_name: quality-gate
+    environment:
+      - NVIDIA_API_KEY=${NVIDIA_API_KEY}
+      - COSMOS3_URL=http://cosmos3-validator:8000
+      - PHOTOCRAFT_HOST=photocraft
+    volumes:
+      - ./data:/workspace/data
+      - ./output:/workspace/output
+      - ./logs:/workspace/logs
+      - ./scripts:/workspace/scripts:ro
+      - ./config:/workspace/config:ro
+      - ./agents:/workspace/agents:ro
+    depends_on:
+      cosmos3-validator:
+        condition: service_healthy
+      photocraft:
+        condition: service_started
+    command: python /workspace/scripts/quality_gate_orchestrator.py
+
+  # Subagent: Suggestion Agent
+  suggestion-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.subagent
+    container_name: suggestion-agent
+    environment:
+      - NVIDIA_API_KEY=${NVIDIA_API_KEY}
+      - COSMOS3_URL=http://cosmos3-validator:8000
+    volumes:
+      - ./agents/suggestion:/workspace/agent:ro
+      - ./data:/workspace/data:ro
+      - ./logs:/workspace/logs
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+
+  # Subagent: Review Agent
+  review-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.subagent
+    container_name: review-agent
+    environment:
+      - NVIDIA_API_KEY=${NVIDIA_API_KEY}
+      - COSMOS3_URL=http://cosmos3-validator:8000
+    volumes:
+      - ./agents/review:/workspace/agent:ro
+      - ./data:/workspace/data:ro
+      - ./logs:/workspace/logs
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+
+  # Redis for inter-agent communication
+  redis:
+    image: redis:7-alpine
+    container_name: pipeline-redis
+    volumes:
+      - redis-data:/data
+    ports:
+      - "6379:6379"
+
+volumes:
+  redis-data:

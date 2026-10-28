@@ -1,0 +1,9 @@
+{
+  "actions": [
+    {"command": "auto_levels", "params": {}},
+    {"command": "denoise", "params": {"strength": 0.2}},
+    {"command": "sharpen", "params": {"amount": 0.15}},
+    {"command": "remove_watermark", "params": {"strength": 0.7}},
+    {"command": "inpaint", "params": {"mode": "content_aware"}}
+  ]
+}

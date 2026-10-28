@@ -1,0 +1,34 @@
+{
+  "id": "chatcmpl-0a100889927e43e4be753f36ec5e7d36",
+  "object": "chat.completion",
+  "created": 1792855443,
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The image contains a watermark, which is a semi-transparent overlay that appears as a faint, white text or logo. The watermark is likely added by the image's creator or owner to protect their intellectual property and prevent unauthorized use of the image. It is not a logo, plate, or watermark in the classical sense, but rather a digital marker that indicates the image's origin or ownership.",
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [],
+        "reasoning_content": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "prompt_tokens": 1682,
+    "total_tokens": 1760,
+    "completion_tokens": 78,
+    "prompt_tokens_details": null
+  },
+  "prompt_logprobs": null,
+  "kv_transfer_params": null
+}

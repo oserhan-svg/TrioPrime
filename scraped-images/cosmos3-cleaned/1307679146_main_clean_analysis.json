@@ -1,0 +1,34 @@
+{
+  "id": "chatcmpl-c0350b55ce584e95937c71620a455184",
+  "object": "chat.completion",
+  "created": 1792855614,
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "G\u00f6rsel i\u00e7erisinde logo, plaka ve watermark bulunmamaktad\u0131r.",
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [],
+        "reasoning_content": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "prompt_tokens": 1682,
+    "total_tokens": 1699,
+    "completion_tokens": 17,
+    "prompt_tokens_details": null
+  },
+  "prompt_logprobs": null,
+  "kv_transfer_params": null
+}
