@@ -229,6 +229,43 @@ Bu bilgilerle push ve deploy'u tamamlayacağız! 🎯
 
 ---
 
+## 🖥️ Hermes Dashboard — Uzaktan Erişim (Ozancan Serhan)
+
+**Durum:** ✅ Aktif, `0.0.0.0:9119` üzerinde dinliyor  
+**PID:** 17908  
+**OAuth:** Nous Portal (client_id: `agent:cmvy1jqw200grjk0grd5t4szq`)  
+**Kimlik Doğrulama:** Gerekli (Nous login) — localhost'ta gerekli değil
+
+### Erişim URL'leri
+| Arayüz | URL | Kullanım |
+|--------|-----|----------|
+| Yerel | `http://127.0.0.1:9119` | Bu makineden |
+| LAN (Ethernet) | `http://192.168.0.16:9119` | Aynı ağdan |
+| LAN (Wi-Fi) | `http://192.168.0.51:9119` | Aynı ağdan |
+| Tailscale VPN | `http://100.123.104.113:9119` | Uzaktan (VPN üzerinden) |
+
+### Komutlar
+```bash
+# Dashboard durumunu kontrol et
+hermes dashboard --status
+
+# Dashboard'u durdur
+hermes dashboard --stop
+
+# Dashboard'u yeniden başlat (0.0.0.0)
+hermes dashboard --host 0.0.0.0 --port 9119 --no-open
+```
+
+### Notlar
+- OAuth ile Nous Portal kimlik doğrulaması etkin (`/login` sayfası)
+- `public_url` boş bırakıldı → proxy-header reconstruction (yerel ağ için çalışır)
+- Tailscale üzerinden uzaktan erişim mümkün (100.123.104.113)
+
+---
+
+
+---
+
 ## ⚠️ Sistem Durumu Notu (2026-11-01)
 
 **Gateway:** PID 998, `draining` durumunda, `restart_pending: True`  
