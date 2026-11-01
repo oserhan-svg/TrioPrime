@@ -1,4 +1,4 @@
-@OzancanSerhan Merhaba Kriss (AI Operator). trio-prime.com /tr 500 hatası (Next.js error) var. 
+@OzancanSerhan Merhaba Kriss (AI Operator). trio-prime.com /tr 500 hatası (Next.js error) var.
 
 === 🖥️ Hermes Dashboard — Giriş Bilgileri ===
 Sistemim basıldı ve şu an çalışıyor:
@@ -9,8 +9,9 @@ Sistemim basıldı ve şu an çalışıyor:
 - LAN (Wi-Fi): http://192.168.0.51:9119
 - **Tailscale VPN (Uzaktan): http://100.123.104.113:9119**
 
-🔐 Giriş: Nous Portal OAuth ile giriş yapmalısın (Weil dashboard'u uzaktan erişime açık).
-📋 Client ID: `agent:cmvy1jqw200grjk0grd5t4szq`
+🔐 Giriş: Basit kullanıcı adı/şifre ile (Nous OAuth yok)
+- Kullanıcı adı: `trio`
+- Şifre: `trio123`
 
 ÖNEMLİ: Tailscale VPN'ini açık bırak. `http://100.123.104.113:9119` üzerinden dashboard'a giriş yapabilirsin.
 
