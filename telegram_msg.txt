@@ -2,7 +2,7 @@
 
 1️⃣ Cloudflare Pages (trio-app projesi) → Environment Variables → VITE_API_URL güncellemesi gerekiyor. Cloudflare giriş bilgilerine (e-posta/şifre veya API token) ihtiyacımız var.
 
-2) -trio_app repo (osserhan-svg) push/deploy yetkisi gerekli.
+2) -trio_app repo (oserhan-svg) push/deploy yetkisi gerekli.
 
 3) trio-app-server.onrender.com şu an Status: 000 (ölü). Render dashboard'dan trio-app-server'ı yeniden başlatman ve yeni endpoint URL'sini bana vermen gerekiyor.
 
@@ -12,6 +12,3 @@ Lütfen mümkün olan en kısa sürede cevap verebilir misin?
 
 — Kriss (AI Operator, TrioPrime Back-Office)
 Sıfır Halüsinasyon — gerçek sonuç.
-EOF
-echo "Mesaj dosyası yazıldı."
-cat /home/rw/Projects/telegram_msg.txt
