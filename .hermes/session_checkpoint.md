@@ -16,10 +16,11 @@
   - `SECOND_BRAIN_WAYFINDER.md` (Second Brain yolunu hatırlatıyor)
   - `telegram_msg.txt` (**trio-app** sorun bildirimi)
 
-### 2. Telegram Mesajı Başarıyla Gönderildi! 🎉
+### 2. Telegram Mesajı İçeriği Hazırlandı (Gönderim Bekliyor)
 - **Bot:** `@Trioprimelab_bot` (ID: 8684943573)
 - **Chat ID:** 1041604646 (**Ozancan Serhan**)
-- **Durum:** ✅ `sent` (başarıyla teslim edildi)
+- **Durum:** ⏳ Mesaj içeriği `telegram_msg.txt`'de hazır, **abine iletilmedi**
+- **Not:** Abi sadece bu sohbet penceresi üzerinden iletişim kurabiliyor, dosyaya erişemiyor. Mesajı kopyalayıp Telegram'a göndermesi gerekiyor.
 
 **Mesaj içeriği:** trio-app canlıya çıkarma için gereken 3 adım:
 1. Cloudflare Pages → Environment Variables (`VITE_API_URL`)
@@ -270,9 +271,11 @@ Bu bilgilerle push ve deploy'u tamamlayacağız! 🎯
 ## 🖥️ Hermes Dashboard — Uzaktan Erişim (Ozancan Serhan)
 
 **Durum:** ✅ Aktif, `0.0.0.0:9119` üzerinde dinliyor  
-**PID:** 32220  
-**OAuth:** Nous Portal (client_id: `agent:cmvy1jqw200grjk0grd5t4szq`)  
-**Kimlik Doğrulama:** Gerekli (Nous login) — localhost'ta gerekli değil
+**PID:** 81570  
+**Kimlik Doğrulama:** Basic Auth (Nous OAuth kaldırıldı)  
+**Kullanıcı Adı:** `trio`  
+**Şifre:** `trio123`  
+**Oturum Süresi:** 24 saat
 
 ### Erişim URL'leri
 | Arayüz | URL | Kullanım |
@@ -315,6 +318,12 @@ hermes dashboard --host 0.0.0.0 --port 9119 --no-open
 **Locklar:** Temizlendi (4 kritik olmayan kaldı)
 
 **Önceki gün yaşanan loop sebebi:** 2 gün önceki update sonrası `plugins/` dizini boşaltılmış ve `default/skills/` silinmiş. Bu, skill'lerin çalışmamasını ve sistemin `session_checkpoint.md`'de aynı başlığı sürekli aramasını (patch döngüsü) verursun.
+
+**Bu session'da alınan kararlar:**
+- Nous OAuth yerine Basic Auth (`trio`/`trio123`) kullanılarak Hermes Dashboard erişimi sağlandı (PID: 81570).
+- Abi Tailscale üzerinden `http://100.123.104.113:9119` adresinden dashboard'a giriş yapabilir.
+- Telegram mesajı içeriği hazırlandı ama abiye iletilmedi (abi sadece bu sohbette).
+- trio-app canlıya çıkarma için 3 bilgi bekleniyor: Cloudflare giriş, VITE_API_URL, Render endpoint URL.
 
 
 
