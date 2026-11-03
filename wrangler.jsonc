@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "trio-crm-pages-staging",
+  "compatibility_date": "2026-11-01",
+  "pages_build_output_dir": "./dist",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "trio-staging-db",
+      "database_id": "02a1a148-5eac-483a-b2da-26bc6f5e449d",
+      "preview_database_id": "02a1a148-5eac-483a-b2da-26bc6f5e449d",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
