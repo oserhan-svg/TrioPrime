@@ -1,0 +1,34 @@
+{
+  "id": "chatcmpl-56ee0e5bbc63420a9fad6a0d51a616c9",
+  "object": "chat.completion",
+  "created": 1792855629,
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Yes, the image contains a watermark. The watermark is located in the top-left corner of the image and is a light gray rectangle with a faint outline of a logo or text. The watermark is not very prominent and does not obstruct the view of the main subject of the image.",
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [],
+        "reasoning_content": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "prompt_tokens": 1682,
+    "total_tokens": 1739,
+    "completion_tokens": 57,
+    "prompt_tokens_details": null
+  },
+  "prompt_logprobs": null,
+  "kv_transfer_params": null
+}

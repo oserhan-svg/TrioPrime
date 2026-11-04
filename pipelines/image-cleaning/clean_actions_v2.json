@@ -1,0 +1,6 @@
+{
+  "actions": [
+    {"command": "filter.sharpen.smartSharpen", "params": {"amount": 50, "radius": 1.0, "reduceNoise": 0}},
+    {"command": "edit.fill", "params": {"contents": "contentAware", "colorAdaptation": true, "opacity": 100, "mode": "normal", "target": "pixels"}}
+  ]
+}

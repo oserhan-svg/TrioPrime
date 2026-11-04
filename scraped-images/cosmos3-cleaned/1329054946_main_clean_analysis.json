@@ -1,0 +1,34 @@
+{
+  "id": "chatcmpl-d79957c8c31b406c856d22ddaffa7fa6",
+  "object": "chat.completion",
+  "created": 1792855506,
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The image contains a watermark, a logo, and a plate. The watermark is a transparent overlay that reads \"exhibit.com\" in white text, while the logo is a small, circular emblem located on the left side of the image. The plate is a rectangular object with a flat surface, situated on the right side of the image.",
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [],
+        "reasoning_content": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "prompt_tokens": 1682,
+    "total_tokens": 1751,
+    "completion_tokens": 69,
+    "prompt_tokens_details": null
+  },
+  "prompt_logprobs": null,
+  "kv_transfer_params": null
+}

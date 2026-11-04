@@ -1,0 +1,34 @@
+{
+  "id": "chatcmpl-35a58b17a8824dd8b41b83f4243acd51",
+  "object": "chat.completion",
+  "created": 1792855491,
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Bu g\u00f6rselde, logo, plaka ve watermark yoktur. G\u00f6rselde, bir ev ve iki k\u0131rm\u0131z\u0131 araba g\u00f6r\u00fclmektedir. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde, bir arka plan, bir arka plan ve bir arka plan yoktur. G\u00f6rselde,",
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [],
+        "reasoning_content": null
+      },
+      "logprobs": null,
+      "finish_reason": "length",
+      "stop_reason": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "prompt_tokens": 1682,
+    "total_tokens": 2182,
+    "completion_tokens": 500,
+    "prompt_tokens_details": null
+  },
+  "prompt_logprobs": null,
+  "kv_transfer_params": null
+}

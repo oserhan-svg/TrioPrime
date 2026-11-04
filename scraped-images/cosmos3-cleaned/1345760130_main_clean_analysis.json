@@ -1,0 +1,34 @@
+{
+  "id": "chatcmpl-4d13ac34c6844f94a81b17a59f037ca7",
+  "object": "chat.completion",
+  "created": 1792855516,
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The image contains a watermark, which is a transparent overlay that displays the text \"dreamstime\" in a stylized font. The watermark is located in the center of the image, and it is semi-transparent, allowing the underlying image to still be visible. The watermark is likely used to identify the source of the image and to prevent unauthorized use.",
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [],
+        "reasoning_content": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "prompt_tokens": 1682,
+    "total_tokens": 1752,
+    "completion_tokens": 70,
+    "prompt_tokens_details": null
+  },
+  "prompt_logprobs": null,
+  "kv_transfer_params": null
+}

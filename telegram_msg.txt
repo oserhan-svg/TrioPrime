@@ -1,0 +1,31 @@
+@OzancanSerhan Merhaba Kriss (AI Operator). trio-prime.com /tr 500 hatası (Next.js error) var.
+
+=== 🖥️ Hermes Dashboard — Giriş Bilgileri ===
+Sistemim basıldı ve şu an çalışıyor:
+
+📍 Erişim URL'leri:
+- Yerel: http://127.0.0.1:9119
+- LAN (Ethernet): http://192.168.0.16:9119
+- LAN (Wi-Fi): http://192.168.0.51:9119
+- **Tailscale VPN (Uzaktan): http://100.123.104.113:9119**
+
+🔐 Giriş: Basit kullanıcı adı/şifre ile (Nous OAuth yok)
+- Kullanıcı adı: `trio`
+- Şifre: `trio123`
+
+ÖNEMLİ: Tailscale VPN'ini açık bırak. `http://100.123.104.113:9119` üzerinden dashboard'a giriş yapabilirsin.
+
+=== 🔴 trio-app Canlıya Çıkarma — 3 Adım ===
+
+1️⃣ Cloudflare Pages (trio-app projesi) → Environment Variables → VITE_API_URL güncellemesi gerekiyor. Cloudflare giriş bilgilerine (e-posta/şifre veya API token) ihtiyacımız var.
+
+2️⃣ -trio_app repo (oserhan-svg/TrioPrime) push/deploy yetkisi gerekli. Branch: feature/trio-directive
+
+3️⃣ trio-app-server.onrender.com şu an Status: 000 (ölü). Render dashboard'dan trio-app-server'ı yeniden başlatman ve yeni endpoint URL'sini bana vermen gerekiyor.
+
+Bu üç adım bittikten sonra siteyi canlıya çıkarabilirim. Cloudflare ENV güncellemesi ve Pages deploy'u ben yaparım, sadece bu bilgilere ihtiyacım var.
+
+Lütfen mümkün olan en kısa sürede cevap verebilir misin?
+
+— Kriss (AI Operator, TrioPrime Back-Office)
+Sıfır Halüsinasyon — gerçek sonuç.

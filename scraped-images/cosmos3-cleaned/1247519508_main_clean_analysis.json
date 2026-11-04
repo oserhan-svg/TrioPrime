@@ -1,0 +1,34 @@
+{
+  "id": "chatcmpl-0ab6874cb9ec4efe872f13c855ae3a61",
+  "object": "chat.completion",
+  "created": 1792855624,
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The image contains a logo, a plate, and a watermark. The logo is located at the top of the building, the plate is located on the front of the building, and the watermark is located in the sky. The regions are as follows:\n\n* Logo: (0, 0, 100, 50)\n* Plate: (0, 200, 300, 50)\n* Watermark: (0, 0, 500, 500)\n\nTherefore, the image contains a logo, a plate, and a watermark.",
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [],
+        "reasoning_content": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "prompt_tokens": 1682,
+    "total_tokens": 1794,
+    "completion_tokens": 112,
+    "prompt_tokens_details": null
+  },
+  "prompt_logprobs": null,
+  "kv_transfer_params": null
+}

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><title>Hermes Agent Kullanma Kılavuzu</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;color:#222;max-width:1000px;margin:0 auto;padding:20px;font-size:13px;}
+h1{font-size:26px;border-bottom:2px solid #1a1a1a;padding-bottom:8px;}
+h2{font-size:20px;border-bottom:1px solid #ddd;padding-bottom:6px;margin-top:24px;}
+h3{font-size:16px;margin-top:20px;}
+p,li{margin:5px 0;}
+table{border-collapse:collapse;width:100%;margin:12px 0;}
+th,td{border:1px solid #ccc;padding:6px 8px;text-align:left;font-size:12px;}
+th{background:#f6f6f6;}
+ul,ol{padding-left:22px;}
+code{background:#f3f3f3;padding:1px 5px;border-radius:3px;font-size:12px;}
+pre{background:#f3f3f3;padding:10px;border-radius:4px;overflow:auto;}
+blockquote{border-left:4px solid #1a1a1a;padding-left:12px;color:#555;margin:12px 0;}
+a{color:#0969da;}
+.section-break{page-break-before:always;}
+</style></head><body><h1>📘 Hermes Agent Kullanma Kılavuzu — TrioPrime</h1>
+<p><strong>Hazırlayan:</strong> Kriss (AI Operator / Back Office — Gökcan &amp; Ozancan)<br />
+<strong>Hedef platform:</strong> Hermes Agent (Nous Research), masaüstü uygulaması<br />
+<strong>Dil:</strong> Türkçe<br />
+<strong>Aktif profil:</strong> default<br />
+<strong>Doğrulama tarihi:</strong> 30 Ekim 2026  </p>
+<hr />
+<h2>İçindekier</h2>
+<ol>
+<li><a href="#1-genel-bakış">Genel Bakış</a>  </li>
+<li><a href="#2-mevcut-kurulumumuz">Mevcut Kurulumumuz</a>  </li>
+<li><a href="#3-neler-yapabiliriz">Neler Yapabiliriz</a>  </li>
+<li><a href="#4-nasıl-conuşmalıyız">Nasıl Konuşmalıyız</a>  </li>
+<li><a href="#5-bellek-ve-skill'ler">Bellek ve Skill'ler</a>  </li>
+<li><a href="#6-otomasyon">Otomasyon</a>  </li>
+<li><a href="#7-güvenlik-ve-sınırlar">Güvenlik ve Sınırlar</a>  </li>
+<li><a href="#8-sık-yapılan-hatalar-ve-sorun-giderme">Sık Yapılan Hatalar ve Sorun Giderme</a>  </li>
+<li><a href="#9-hızlı-başlangıç---ilk-hafta">Hızlı Başlangıç — İlk Hafta</a>  </li>
+<li><a href="#10-kullanmadığımız-ama-işimize-yarayabilecek-özellikler">Kullanmadığımız Ama İşimize Yarayabilecek Özellikler</a>  </li>
+</ol>
+<p><a href="#hızlı-başvuru-özeti---tek-sayfa">Hızlı Başvuru Özeti — Tek Sayfa</a></p>
+<hr />
+<h2>1. Genel Bakış</h2>
+<p><strong>Hermes Agent nedir?</strong><br />
+Hermes, Nous Research tarafından geliştirilmiş bir AI aracıdır. Sadece sohbet etmekle kalmaz, aynı zamanda bilgisayarınızdaki dosyaları okuyup yazabilir, komut çalıştırabilir, zamanlanmış görevler ayarlayabilir ve Telegram gibi kanallar üzerinden size mesaj gönderebilir.</p>
+<p><strong>Nasıl çalışır?</strong><br />
+Sizinle sohbet eder, arka planda bir “araç kutusu” kullanarak işleri yerine getirir. Örneğin size bir dosya açmanızı söylemezseniz, doğrudan o dosyayı okuyup içeriği size aktarabilir.</p>
+<p><strong>Bizde nasıl kurulu?</strong><br />
+- Masaüstü uygulama olarak çalışıyor.<br />
+- Aktif profil: <code>default</code> (ana profil). Diğer profiller (ör. <code>asistan</code>, <code>tradeworker</code>, <code>trio_worker</code>) de var ama bizim gündelik kullanımımız <code>default</code> üzerinden.<br />
+- İleti kanalı: Telegram. Bot:@<code>trioprimelab_bot</code>. Tek aktif kanal, <strong>Ozancan Serhan</strong> ile doğrudan mesaj (DM).<br />
+- Ağ geçidi (gateway) çalışıyor, sürüm <code>0.21.5</code>, Telegram bağlantısı aktif.</p>
+<blockquote>
+<p>🔍 Doğrulanamadı: Masaüstü uygulamanın tam sürüm numarası ve kurulum tarihi doğrudan dosyadan okunamadı (yukarıdaki 0.21.5, ağ geçidi sürümüdür).</p>
+</blockquote>
+<hr />
+<h2>2. Mevcut Kurulumumuz</h2>
+<p>Aşağıdaki bilgiler gerçek dosya ve ayar düzeninden doğrulanmıştır.</p>
+<h3>Model ve sağlayıcı</h3>
+<table>
+<thead>
+<tr>
+<th>Ayar</th>
+<th>Değer</th>
+<th>Durum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Varsayılan model</td>
+<td><code>google/gemini-2.5-flash-preview</code></td>
+<td>✅ Doğrulandı</td>
+</tr>
+<tr>
+<td>Sağlayıcı</td>
+<td>NVIDIA (<code>api.nvidia.com/v1</code>)</td>
+<td>✅ Doğrulandı</td>
+</tr>
+<tr>
+<td>Yerel model takma adı</td>
+<td><code>lmstudio/openai/gpt-oss-20b</code> (LM Studio)</td>
+<td>⚠️ Tanım var, çalışırlık doğrulanamadı</td>
+</tr>
+<tr>
+<td>Gemini takma adı</td>
+<td><code>gemini/gemini-flash-latest</code></td>
+<td>⚠️ Tanım var</td>
+</tr>
+</tbody>
+</table>
+<h3>Ses</h3>
+<ul>
+<li>Konuşma metni-dönüşümü (STT): Türkçe</li>
+<li>Metin-konuşma (TTS): Piper</li>
+</ul>
+<h3>MOA (Çoklu Ajan / Reference Models)</h3>
+<p>Etkin. Toplama modeli: <code>nvidia/nemotron-3.5-lightning:free</code>. Referans modeller: <code>poolside/laguna-s-2.1:free</code>, <code>nvidia/nemotron-3-ultra-550b-a55b:free</code>.</p>
+<h3>Araç setleri (platform_toolsets)</h3>
+<p>Aşağıdakiler aktif: <code>a2a</code>, <code>browser</code>, <code>code_execution</code>, <code>computer_use</code>, <code>cronjob</code> (zamanlanmış görev), <code>delegation</code>, <code>file</code>, <code>image_gen</code>, <code>memory</code>, <code>session_search</code>, <code>skills</code>, <code>terminal</code>, <code>todo</code>, <code>tts</code>, <code>vision</code>, <code>web</code>.</p>
+<h3>Telegram kanalları</h3>
+<ul>
+<li>Bot 1: <code>@trioprimelab_bot</code> (token son 7 hanesi <code>8684943573</code>)</li>
+<li>Bot 2: <code>@ToxkolLik_bot</code> (token son 7 hanesi <code>8829341471</code>)</li>
+<li>Aktif kanal: Telegram DM — <strong>Ozancan Serhan</strong> (<code>1041604646</code>)</li>
+</ul>
+<h3>Cron / zamanlanmış görevler (default profil)</h3>
+<ul>
+<li><code>asistan_kontrol.sh</code> — bot aktifliği, <code>.env.local</code>, scraping ve <code>sunumu/index.html</code> kontrolü</li>
+<li><code>hermes_system_check.sh</code> — günlük sistem kontrolü (yukarıdakilerle aynı)</li>
+<li><code>suggestions.json</code> — 4 adet bekleyen zamanlanmış görev önerisi (hiçbiri henüz etkinleştirilmemiş, hepsi <code>pending</code>):</li>
+<li>Günlük özetleme (sabah 08:00)</li>
+<li>Önemli posta izleyicisi (her 30 dakikada bir)</li>
+<li>Haftalık gözden geçirme (Pazar 18:00)</li>
+<li>İşgünü başlangıç hatırlatması (haftaiçi 09:00)</li>
+</ul>
+<h3>Diğer altyapı</h3>
+<ul>
+<li>Terminal arka ucu: <code>local</code>, çalışma dizini <code>/home/rw/Projects</code>, zaman aşımı 180 saniye</li>
+<li>Veritabanı: SQLite (<code>state.db</code>), WAL modu</li>
+<li>Kanban: etkin (<code>review_dispatch: true</code>), dosya <code>kanban.db</code></li>
+<li>Eklenti: <code>disk-cleanup</code> etkin</li>
+<li>Kimlik/bellek dosyaları: <code>SOUL.md</code>, <code>identity.md</code> (Kriss personasını tanımlıyor)</li>
+</ul>
+<blockquote>
+<p>🔍 Doğrulanamadı: <code>.env</code> dosyası (gizli anahtarlar/tokenlar) doğrudan okunamıyor; bu iyi bir güvenlik uygulamasıdır.<br />
+🔍 Doğrulanamadı: LM Studio'nun gerçekten çalışıp çalışmadığı (yerel model alias'ı sadece tanımlı).<br />
+🔍 Doğrulanamadı: E-posta entegrasyonunun kurulu olup olmadığı.</p>
+</blockquote>
+<hr />
+<h2>3. Neler Yapabiliriz</h2>
+<p>Aşağıda iş alanımıza özel somut örnekler var. Her biri Hermes'in gerçek araçlarıyla yapılabilir.</p>
+<h3>Gayrimenkul (Trio Emlak / TrioPrime)</h3>
+<ul>
+<li><strong>İlan özetleri:</strong> Sahibinden veya kendi portföyümüzdeki ilanları okuyup, Ayvalık / Cunda / Altınova / Gömeç / İstanbul odaklı kısa özetler çıkarabiliriz.</li>
+<li><strong>İçerik taslakları:</strong> 9:16 dikey video veya Instagram hikayesi için 3 saniyelik kanca (hook) yazdırabiliriz.</li>
+<li><strong>Müşteri takibi:</strong> Telefon <code>0533 378 68 94</code> ile gelen müşteri notlarını kanban üzerinden takip edebiliriz.</li>
+</ul>
+<p><em>Örnek komut:</em><br />
+<code>"Ayvalık'taki son 3 ilanımızı alıp her biri için 2 cümlelik bir Türkçe açıklama yaz, pazarlama diliyle."</code></p>
+<h3>İçerik üretimi</h3>
+<ul>
+<li>Blog / sosyal medya yazıları (Türkçe, teknik terimler açılmış)</li>
+<li>Sunum ve kart taslakları (HTML)</li>
+<li>Görsel akış senaryoları (trio-image-pipeline skill'i mevcut)</li>
+</ul>
+<p><em>Örnek komut:</em><br />
+<code>"Cunda'da satılık bir villa için Instagram hikayesi metni yaz, ilk 3 saniyede kanca olsun, çağrı ile bitsin."</code></p>
+<h3>İş geliştirme</h3>
+<ul>
+<li>İş akışlarını otomatikleştirmek için zamanlanmış görevler kurmak</li>
+<li>Geliştirme notlarını, todo listelerini yönetmek</li>
+<li>Git deposu (<code>https://github.com/oserhan-svg/TrioPrime</code>) ile ilgili dokümanları okuma ve güncelleme</li>
+</ul>
+<p><em>Örnek komut:</em><br />
+<code>"TrioPrime deposundaki IDEA.md'yi oku ve faz 1'deki yapılacakları madde madde listele."</code></p>
+<hr />
+<h2>4. Nasıl Konuşmalıyız</h2>
+<p>İyi bir Hermes komutu şunları içerir:
+1. <strong>Ne istediğinizi</strong> belirtin.
+2. <strong>Hangi konu/bölge</strong> (ör. Ayvalık, Cunda) varsa söyleyin.
+3. <strong>Biçim</strong> isterseniz (madde, kısa paragraf, 9:16 metni, vb.).
+4. <strong>Doğrulama</strong> isteyebilirsiniz: <code>"Bu bilgi dosyadan mı yoksa tahmından mı?"</code></p>
+<h3>İyi örnekler</h3>
+<table>
+<thead>
+<tr>
+<th>Senaryo</th>
+<th>Komut örneği</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>İlan özeti</td>
+<td><code>"Sahibinden'deki Ayvalık ilanlarını özetle, fiyat ve metrekareyi göster."</code></td>
+</tr>
+<tr>
+<td>İçerik</td>
+<td><code>"Cunda için 3 saniyelik kanca ile bir Instagram hikayesi yaz."</code></td>
+</tr>
+<tr>
+<td>Dosya işi</td>
+<td><code>"IDEA.md'yi oku ve faz rollout planını Türkçe özetle."</code></td>
+</tr>
+<tr>
+<td>Zamanlama</td>
+<td><code>"Her sabah 08:00'de bana kısa bir günlük özet gönder."</code></td>
+</tr>
+<tr>
+<td>Kod/teknik</td>
+<td><code>"TrioPrime reposunda git durumunu kontrol et."</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Kötü örnekler (kaçının)</h3>
+<ul>
+<li><code>"Bir şeyler yap."</code> — çok genel.</li>
+<li><code>"Fiyatı kaç?"</code> — hangi ilan, hangi bölge?</li>
+<li><code>"Tüm dosyaları sil."</code> — riskli, onay gerektirir.</li>
+</ul>
+<h3>Kural: "Doğrulanamadı" işareti</h3>
+<p>Hermes, bildiği bir şeyden emin değilse ona <code>"doğrulanamadı"</code> diye işaret koymalı. Siz de buna dikkat edin; tahmine dayalı bir işlem yapmayın.</p>
+<hr />
+<h2>5. Bellek ve Skill'ler</h2>
+<h3>Bellek</h3>
+<p>Hermes, konuşmalarınızda geçtiğiniz bilgileri not alabilir ve sonraki oturumlarda hatırlayabilir.<br />
+- <strong>Neler hatırlar:</strong> Sizinle paylaştığınız iş hedefleri, tercih ettiğiniz bölge (Ayvalık/Cunda vb.), telefon numarası (<code>0533 378 68 94</code>), proje notları.
+- <strong>Nasıl öğrenir:</strong> Söyledikleriniz sohbet geçmişine ve <code>state.db</code> veritabanına kaydedilir. <code>memories/</code> klasörü de var.</p>
+<blockquote>
+<p>🔍 Doğrulanamadı: Ne kadar uzun süre bellek tutar, otomatik özetleme var mı (belli değil).</p>
+</blockquote>
+<h3>Skill'ler</h3>
+<p>Skill'ler, Hermes'e yeni yetenek kazandiren hazır paketlerdir.</p>
+<ul>
+<li><strong>Kurulu skill sayısı (root profil):</strong> ~40 adet. Önemli olanlar:</li>
+<li><code>trio-emlak</code> — TrioPrime agent sistemi, bot, portföy, <code>.worktrees</code>, faz rollout.</li>
+<li><code>trio-image-pipeline</code> — TrioPrime işlem hattı (görsel).</li>
+<li><code>hermes-agent</code> — Hermes'i yapılandırmak, değiştirmek, sorun gidermek için.</li>
+<li><code>sahibinden-scraping</code>, <code>real-estate-scraping-analysis</code> — ilan analizi.</li>
+<li><code>telegram-bot-management</code>, <code>telegram-bot-verification</code> — Telegram bot işleri.</li>
+<li><strong>asistan profili skillleri:</strong> Boş (kendi skill'i yok, root'takileri miras alabilir gibi görünüyor, doğrulanamadı).</li>
+</ul>
+<h3>Yeni skill nasıl eklenir?</h3>
+<ol>
+<li><code>skill_view(name='hermes-agent')</code> ile Hermes skill'inin talimatlarını oku.</li>
+<li>Skill'i <code>skill_manage(action='create')</code> veya <code>patch</code> ile ekleyin/güncelleyin.</li>
+<li>Değişikliği test edin (gerçek komut çalıştırın, sadece tahminlemeyin).</li>
+</ol>
+<blockquote>
+<p>🔍 Doğrulanamadı: Skill eklemek için kesin adım adım komut seti (hermes-agent skill'i okunmalı).</p>
+</blockquote>
+<hr />
+<h2>6. Otomasyon</h2>
+<h3>Zamanlanmış görevler (cron)</h3>
+<p>Hermes'in arka planda çalıştırabileceği görevler var. Şu an sadece <strong>öneri</strong> düzeyinde, henüz aktifleştirilmemiş:</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Görev</th>
+<th>Zamanlama</th>
+<th>Durum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Günlük sabah özeti</td>
+<td>Her gün 08:00</td>
+<td><code>pending</code> (beklemede)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Önemli posta izleyicisi</td>
+<td>Her 30 dakikada bir</td>
+<td><code>pending</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Haftalık gözden geçirme</td>
+<td>Pazar 18:00</td>
+<td><code>pending</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>İşgünü başlangıç hatırlatması</td>
+<td>Haftaiçi 09:00</td>
+<td><code>pending</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Mevcut kontrol scriptleri</h3>
+<ul>
+<li><code>asistan_kontrol.sh</code> — iki Telegram botunun aktifliğini, <code>.env.local</code>'ı, scraping'i ve web sunumunu kontrol eder.</li>
+<li><code>hermes_system_check.sh</code> — aynı kontrolleri günlük olarak çalıştırır, <code>/tmp/hermes_system_check.log</code> ye yazar.</li>
+</ul>
+<h3>Nasıl kurulur?</h3>
+<p>Bir zamanlanmış görev istediğinizde, Hermes'e şöyle söyleyin:<br />
+<code>"Her sabah 08:00'de bana TrioPrime ilgili kısa bir özet gönder, Telegram'dan."</code><br />
+Hermes bunu bir cron işi olarak ayarlayabilir. Aktifleştikten sonra, işi çalışmadığında size bildirim verir.</p>
+<blockquote>
+<p>🔍 Doğrulanamadı: Cron görevlerinin aslında çalışıp çalışmadığı (sadece dosyalar var, crontab girişi doğrulanmadı).</p>
+</blockquote>
+<hr />
+<h2>7. Güvenlik ve Sınırlar</h2>
+<h3>Açık izinler (doğrulanmış)</h3>
+<ul>
+<li>Dosya okuma/yazma (<code>file</code> toolset)</li>
+<li>Terminal komutu çalıştırma (<code>terminal</code>, local backend, <code>/home/rw/Projects</code>)</li>
+<li>Web tarama (<code>web</code>, <code>browser</code>)</li>
+<li>Telegram mesaj gönderme / alma</li>
+<li>Zamanlanmış görev (<code>cronjob</code>)</li>
+</ul>
+<h3>Dikkat etmeniz gerekenler</h3>
+<ul>
+<li><strong><code>.env</code> dosyası:</strong> Gizli anahtarları içerir, doğrudan okunamaz ve paylaşılmamalıdır.</li>
+<li><strong>Riskli işlemler:</strong> Dosya silme, sistem ayar değişikliği, para ödeme işlemleri — bunlarda Hermes size onay sormalı veya sizi uyarmalı.</li>
+<li><strong>Token/şifre:</strong> Asla sohbette şifre veya token paylaşmayın.</li>
+<li><strong>Doğrulama:</strong> Hermes bir şeyden emin değilse <code>"doğrulanamadı"</code> der; buna güvenin, tahmin yapmayın.</li>
+</ul>
+<h3>Sınırlar</h3>
+<ul>
+<li>Yerel model (<code>lmstudio/openai-gpt-oss-20b</code>) çalışıp çalışmadığı bilinmiyor.</li>
+<li>E-posta izleyicisi henüz kurulmamış gibi görünüyor (<code>pending</code> öneri sadece).</li>
+<li>Bazı skill'ler asistan profilinde eksik olabilir.</li>
+</ul>
+<hr />
+<h2>8. Sık Yapılan Hatalar ve Sorun Giderme</h2>
+<table>
+<thead>
+<tr>
+<th>Sorun</th>
+<th>Muhtemel neden</th>
+<th>Çözüm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hermes yanıt vermiyor</td>
+<td>Ağ geçidi kapalı / Telegram bağlantısı kesildi</td>
+<td><code>gateway_state.json</code> dosyasını kontrol edin; <code>state</code> alanının <code>running</code> olduğundan emin olun.</td>
+</tr>
+<tr>
+<td>Model cevabı İngilizce</td>
+<td>Varsayılan model İngilizce yanıt verebiliyor</td>
+<td>Komutunuzda <code>"Türkçe yanıtla"</code> belirtin.</td>
+</tr>
+<tr>
+<td>Yerel model çalışmıyor</td>
+<td>LM Studio açık değil / model yüklü değil</td>
+<td>LM Studio'yı açın ve <code>openai/gpt-oss-20b</code> modelini yükleyin.</td>
+</tr>
+<tr>
+<td>Dosya bulunamadı</td>
+<td>Yanlış yol</td>
+<td>Çalışma dizini <code>/home/rw/Projects</code>; mutlak yol kullanın.</td>
+</tr>
+<tr>
+<td>Cron işi çalışmadı</td>
+<td>Görev henüz etkinleştirilmedi</td>
+<td><code>suggestions.json</code>'daki <code>pending</code> öğesini etkinleştirin.</td>
+</tr>
+<tr>
+<td>Skill yok</td>
+<td>Skill kurulu değil</td>
+<td><code>skill_view(name='...')</code> ile kontrol edin, eksikse ekleyin.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>9. Hızlı Başlangıç — İlk Hafta</h2>
+<h3>Gün 1: Tanışma</h3>
+<ul>
+<li>Hermes'e kendinizi ve abinizi tanıtın: <code>"Ben Gökcan, abim Ozancan Serhan. Trio Emlak / TrioPrime çalışıyoruz. Bölgemiz Ayvalık / Cunda / Altınova / Gömeç / İstanbul. Telefon: 0533 378 68 94."</code></li>
+<li>Kanalı doğrulayın: Telegram'dan <code>@trioprimelab_bot</code> ile mesajlaşabilir misiniz diye sorun.</li>
+</ul>
+<h3>Gün 2: Kurulumu inceleyin</h3>
+<ul>
+<li>Bu kılavuzu bölüm 2'den okuyun. Model, araç, kanallar not alın.</li>
+<li><code>IDEA.md</code>'yi (TrioPrime spesifikasyonu) Hermes ile özetlemesini isteyin.</li>
+</ul>
+<h3>Gün 3: İlk iş örneği</h3>
+<ul>
+<li>Bir ilan için içerik taslağı istedin: <code>"Cunda'da satılık daire için 3 saniyelik kanca ile Instagram hikayesi yaz."</code></li>
+<li>Sonucu abinizle paylaşın, geri bildirim alın.</li>
+</ul>
+<h3>Gün 4: Bellek ve skill</h3>
+<ul>
+<li>Bir notunuzu hatırlatın: <code>"Sonraki sohbetimde Ayvalık odaklı olduğunu hatırla."</code></li>
+<li><code>trio-emlak</code> skill'ini deneyin: <code>"trio-emlak skill'i ne işe yarar?"</code></li>
+</ul>
+<h3>Gün 5: Otomasyon (isteğe bağlı)</h3>
+<ul>
+<li>Bir zamanlanmış görev kurun: <code>"Pazar akşamları haftalık gözden geçirme raporu gönder."</code></li>
+<li><code>pending</code> durumunu <code>aktif</code> olduğundan emin olun.</li>
+</ul>
+<h3>Gün 6: Güvenlik</h3>
+<ul>
+<li><code>.env</code> dosyasına asla dokunmayın.</li>
+<li>Riskli komutlardan önce Hermes'e onay sorun.</li>
+</ul>
+<h3>Gün 7: Gözden geçirme</h3>
+<ul>
+<li>İlk haftada ne yaptınız, ne öğrendiniz not alın.</li>
+<li>Bu kılavuzu eksiklikler için güncelleyin.</li>
+</ul>
+<hr />
+<h2>10. Kullanmadığımız Ama İşimize Yarayabilecek Özellikler</h2>
+<table>
+<thead>
+<tr>
+<th>Özellik</th>
+<th>Ne işe yarar</th>
+<th>Durum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MOA (Çoklu Ajan)</td>
+<td>Birden fazla modelin cevabını birleştirir</td>
+<td>✅ Etkin (doğrulanmış)</td>
+</tr>
+<tr>
+<td>Konuşma metni (TTS)</td>
+<td>Metni sesli okur</td>
+<td>✅ Piper (doğrulanmış)</td>
+</tr>
+<tr>
+<td>Metin-konuşma (STT)</td>
+<td>Sesi metne döker</td>
+<td>✅ Türkçe (doğrulanmış)</td>
+</tr>
+<tr>
+<td>Görsel üretim (<code>image_gen</code>)</td>
+<td>Resim üretir</td>
+<td>⚠️ Tanımlı, kullanım doğrulanamadı</td>
+</tr>
+<tr>
+<td>Video üretim (<code>video_gen</code>)</td>
+<td>Video üretir</td>
+<td>⚠️ Tanımlı, kullanım doğrulanamadı</td>
+</tr>
+<tr>
+<td>Bilgisayar kullanımı (<code>computer_use</code>)</td>
+<td>Ekrandaki işlemleri yapabilir</td>
+<td>⚠️ Tanımlı, kullanım doğrulanamadı</td>
+</tr>
+<tr>
+<td>E-posta izleyicisi</td>
+<td>Gelen posta hakkında bildirim</td>
+<td>⚠️ <code>pending</code> öneri sadece</td>
+</tr>
+<tr>
+<td>Web arama (<code>web</code>, <code>x_search</code>)</td>
+<td>İnternette arama</td>
+<td>⚠️ Tanımlı, kullanım doğrulanamadı</td>
+</tr>
+<tr>
+<td>Burada skill ekleme (<code>skills</code>)</td>
+<td>Yeni yetenek kazanma</td>
+<td>✅ <code>skills</code> toolset var</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1>Hızlı Başvuru Özeti — Tek Sayfa</h1>
+<table>
+<thead>
+<tr>
+<th>Konu</th>
+<th>Ne yapmalıyız</th>
+<th>Not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kimiz</td>
+<td>Gökcan &amp; Ozancan Serhan, Trio Emlak / TrioPrime</td>
+<td>Telefon: <code>0533 378 68 94</code></td>
+</tr>
+<tr>
+<td>Bölge</td>
+<td>Ayvalık / Cunda / Altınova / Gömeç / İstanbul</td>
+<td>DAİMA bu bölge</td>
+</tr>
+<tr>
+<td>Profil</td>
+<td><code>default</code> (Hermes masaüstü)</td>
+<td><code>asistan</code> varsa dikkatli kullan</td>
+</tr>
+<tr>
+<td>Model</td>
+<td><code>google/gemini-2.5-flash-preview</code> (NVIDIA)</td>
+<td>Yerel: <code>lmstudio/openai/gpt-oss-20b</code></td>
+</tr>
+<tr>
+<td>Kanal</td>
+<td>Telegram DM — <code>@trioprimelab_bot</code></td>
+<td>Ozancan Serhan</td>
+</tr>
+<tr>
+<td>Komut</td>
+<td>Ne, hangi bölge, hangi biçim</td>
+<td>Türkçe, sade</td>
+</tr>
+<tr>
+<td>Bellek</td>
+<td><code>state.db</code>, <code>memories/</code>, sohbet geçmişi</td>
+<td>Doğrulanamadı: ne kadar süre</td>
+</tr>
+<tr>
+<td>Skill</td>
+<td>~40 kurulu, <code>trio-emlak</code> en önemli</td>
+<td>Yeni ekle: <code>skill_view</code> → <code>skill_manage</code></td>
+</tr>
+<tr>
+<td>Otomasyon</td>
+<td>4 <code>pending</code> zamanlanmış görev</td>
+<td>Hiçbiri aktif değil</td>
+</tr>
+<tr>
+<td>Güvenlik</td>
+<td><code>.env</code>'e dokunma, riskli işlemde onay</td>
+<td><code>"doğrulanamadı"</code> ibaresine güven</td>
+</tr>
+<tr>
+<td>Sorun</td>
+<td><code>gateway_state.json</code>, loglar</td>
+<td>Terminal: local, <code>/home/rw/Projects</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Hazırlayan: Kriss — AI Operator / Back Office (TrioPrime)</em><br />
+<em>Bu kılavuz, Hermes kurulumunun gerçek dosya ve ayarlarından doğrulanmıştır. "doğrulanamadı" işaretli yerler, size emin olmanız gereken noktalardır.</em></p></body></html>

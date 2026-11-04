@@ -1,0 +1,74 @@
+{
+  "kadro_deger_orani_esigi": 0.4,
+  "baski_orani_esigi": 0.6,
+  "xg_esigi": 2.75,
+  "iy_kg_var_son_mac_esigi": 0.65,
+  "guven_skoru_min": 7.5,
+  "iy_kg_var_hucum_deger_esigi": "lig_ortalamasi",
+  "her_iki_yari_fiziksel_esigi": 0.6,
+  "iy_kg_var_tempo_esigi": 0.65,
+  "guncelleme_tarihi": "2026-10-21T13:42:00",
+  "versiyon": "1.1",
+  "hatali_parametreler": [],
+  "onerilen_guncellemeler": [
+    {
+      "parametre": "kadro_deger_orani_esigi",
+      "mevcut_deger": 0.4,
+      "onerilen_deger": 0.35,
+      "gerekce": "Daha fazla maçı dahil etmek için eşiği %35'e düşür",
+      "oncelik": "ORTA"
+    },
+    {
+      "parametre": "xg_esigi",
+      "mevcut_deger": 2.75,
+      "onerilen_deger": 2.5,
+      "gerekce": "2.5-2.75 aralığındaki maçlar da yeterli gol potansiyeline sahip",
+      "oncelik": "ORTA"
+    },
+    {
+      "parametre": "iy_kg_var_son_mac_esigi",
+      "mevcut_deger": 0.65,
+      "onerilen_deger": 0.6,
+      "gerekce": "Son 8 maçta %60+ ile daha geniş örneklem",
+      "oncelik": "DÜŞÜK"
+    }
+  ],
+  "guvenilir_tahmin_kaynaklari": [
+    {
+      "isim": "NerdyTips",
+      "url": "https://nerdytips.com/tr",
+      "aciklama": "AI tahminler, NT Apex modeli, 725+ lig, 286K+ maç",
+      "guvenilirlik": 5
+    },
+    {
+      "isim": "FootyStats",
+      "url": "https://footystats.org/tr/predictions",
+      "aciklama": "xG, BTTS, istatistik tabanlı tahminler",
+      "guvenilirlik": 4
+    },
+    {
+      "isim": "Bilyoner - Yazarlar",
+      "url": "https://www.bilyoner.com/yazarlar",
+      "aciklama": "Usta yorumları, expert analiz",
+      "guvenilirlik": 4
+    },
+    {
+      "isim": "Nesine - Editör Yorumları",
+      "url": "https://www.nesine.com/iddaa/futbol/editor-yorumlari",
+      "aciklama": "Editör tahminleri, Senih Yurga",
+      "guvenilirlik": 4
+    },
+    {
+      "isim": "IddaUzmanı",
+      "url": "http://iddauzmani.net/",
+      "aciklama": "Yabancı sitelerden derleme, analizli anlatımlar",
+      "guvenilirlik": 3
+    },
+    {
+      "isim": "thestatsdontlie.com",
+      "url": "https://thestatsdontlie.com",
+      "aciklama": "Reddit topluluğu tavsiyesi, istatistik odaklı",
+      "guvenilirlik": 3
+    }
+  ]
+}

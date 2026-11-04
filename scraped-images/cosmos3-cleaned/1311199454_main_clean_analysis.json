@@ -1,0 +1,34 @@
+{
+  "id": "chatcmpl-54c78909f5b14792ba7baca8ea30b76d",
+  "object": "chat.completion",
+  "created": 1792855465,
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "A\u00e7\u0131k\u00e7a g\u00f6r\u00fclebilen bir logo, plaka veya watermark yok. G\u00f6rselde, herhangi bir logo, plaka veya watermark bulunmuyor.",
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [],
+        "reasoning_content": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "prompt_tokens": 1682,
+    "total_tokens": 1717,
+    "completion_tokens": 35,
+    "prompt_tokens_details": null
+  },
+  "prompt_logprobs": null,
+  "kv_transfer_params": null
+}

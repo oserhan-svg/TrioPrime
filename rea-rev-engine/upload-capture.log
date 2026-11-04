@@ -1,0 +1,18 @@
+# Upload POST Capture — Deneme Sonucu
+
+## Denenenler
+- DevTools Protocol (`ws://.../7DE3A7ACE...`) bağlanıldı (`Network.enable`, `Page.enable`, `Runtime.enable`).
+- `capture-upload-post.py` 10s dinledi.
+- Görsel yüklenmedi (desktop preview'de file picker tetiklenemedi; `Upload image` sadece metin, interaktif file input değil).
+
+## Yakalanan POST
+- Yok (`upload-capture.log` boş / oluşturulmadı).
+- `notes.json` GET'i yakalandı (önceki adım).
+
+## Neden Yakalanamadı
+- Pixelbin upload, sunucu taraflı bir `multipart/form-data` POST'u (resim + model parametresi + kullanıcı token).
+- `desktop_preview` / `drive_preview` araçları file picker açamaz; gerçek upload için kullanıcı müdahalesi veya `curl -F` ile endpoint URL'si gerekir.
+- Endpoint URL (`https://api.pixelbin.io/v1/...` veya benzeri) bilinmiyor.
+
+## Öneri (Kriss — gerçekçi)
+Eğer gerçek POST'u yakalamak istiyorsan, tarayıcıda manuel yükleme yapıp `chrome://inspect` Network panel'inden `upload` veya `transform` endpoint URL'sini alman gerekir. Bu otomasyonla mümkün değil — manuel adım gerekir.

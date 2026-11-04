@@ -1,0 +1,34 @@
+{
+  "id": "chatcmpl-1ef3e4653c7a461ba4de3a66aba19a99",
+  "object": "chat.completion",
+  "created": 1792855501,
+  "model": "meta/llama-3.2-11b-vision-instruct",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Bu g\u00f6rselde logo, plaka, watermark var. Logo ve plaka g\u00f6rselde sa\u011f \u00fcst k\u00f6\u015fede, watermark ise g\u00f6rselde sa\u011f alt k\u00f6\u015fede yer almaktad\u0131r.",
+        "refusal": null,
+        "annotations": null,
+        "audio": null,
+        "function_call": null,
+        "tool_calls": [],
+        "reasoning_content": null
+      },
+      "logprobs": null,
+      "finish_reason": "stop",
+      "stop_reason": null
+    }
+  ],
+  "service_tier": null,
+  "system_fingerprint": null,
+  "usage": {
+    "prompt_tokens": 1682,
+    "total_tokens": 1722,
+    "completion_tokens": 40,
+    "prompt_tokens_details": null
+  },
+  "prompt_logprobs": null,
+  "kv_transfer_params": null
+}
